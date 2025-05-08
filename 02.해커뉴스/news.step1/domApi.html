@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul {
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const ul = document.createElement("ul")
+    for(let i=0;i<3;i=i+1){
+      console.log(i);//0, 1, 2
+      const li = document.createElement("li")
+      li.innerHTML = "뉴스제목"
+      ul.appendChild(li)
+    }//end of for
+    //여기로 탈출
+    //ul태그전체를 id가 root인 div태그에 추가하기
+    //순수한 자바스크립트를 바닐라스크립트라고 말함
+    document.querySelector("#root").appendChild(ul)
+  </script>
+  
+</body>
+</html>

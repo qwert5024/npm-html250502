@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul {
+      list-style: none;
+    }
+    li{
+      cursor: pointer;
+      padding: 4px;
+    }
+    li:hover{
+      background-color: aqua;
+    }
+  </style>
+</head>
+<body> 
+  <ul>
+    <li>메뉴1</li>
+    <li>메뉴2</li>
+    <li>메뉴3</li>
+  </ul>
+  <script>
+    const ul = document.querySelector("ul")
+    console.log(ul);
+    ul.addEventListener('click',(event)=>{
+      //console.log("클릭성공");
+      //console.log(event.target.value);0만 출력됨. li구분이 어려움
+      console.log(event.target.closest('li'));
+      const li = event.target.closest("li")
+      //li태그가 참조하는 것이 li태그이므로 그 변수명에 .을 찍고 textContent속성을 적으면
+      //li태그 내부에 text node만 가져온다.
+      console.log(li.textContent);
+    })
+  </script>
+</body>
+</html>
+<!-- ul>li*3{메뉴$} -->
