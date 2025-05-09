@@ -13,14 +13,11 @@ function getData(url){
   xhr.send() 
   return JSON.parse(xhr.responseText)
 }//end of getData
-//뉴스상세 페이지 구현
-//사용자가 클릭한 뉴스 제목의 id숫자를 알아낸다.
-//@id에 id숫자를 치환한다.
-//h1태그붙여서 제목을 쓴다.
-//그리고 목록으로 돌아갈 링크를 작성한다.
 function newsDetail(){
     const id = location.hash.substring(7)
+    console.log(id);
     const newsContent = getData(CONTENT_URL.replace("@id", id))
+    console.log(newsContent);
     container.innerHTML = `
       <h1>${newsContent.title}</h1>
       <div>
@@ -42,7 +39,7 @@ function newsSource(){
   for(let i=(store.currentPage-1)*10;i<store.currentPage*10;i++){
     newsList.push(`
       <li>
-        <a href="#${news[i].id}">
+        <a href="#/show/${news[i].id}">
           ${news[i].title}(${news[i].comments_count})
         </a>
       </li>

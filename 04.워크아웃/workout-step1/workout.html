@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/3b3af91d34.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./workout.css">
+</head>
+<body>
+
+  <script>
+    window.addEventListener("load", (event) => {
+      init()
+      console.log("page is fully loaded");
+      const ul = document.querySelector('.ul')
+      console.log(ul);
+    });
+  </script>
+  <ul class="ul"></ul>
+  <script>
+    console.log("여기");
+    const items = [
+      {id:1, name: '벤치프레스', count: 0},
+      {id:2, name: '렛풀다운', count: 0},
+      {id:3, name: '스쿼트', count: 0},
+    ]
+    const handleIncrement = (event) => {
+      console.log("handleIncrement호출 성공");
+    }//arrow function
+    const handleDecrement = (event) => {
+      console.log("handleDecrement호출 성공");
+    }//end of handleDecrement
+    const handleDelete = (event) => {
+      console.log("handleDelete호출 성공");
+    }//end of handleDelete
+    const init= () =>{
+      let lis = ''
+      for(let i=0;i<items.length;i=i+1){
+        lis += '<li class="workout">'
+        lis += `<span class="workout-name">${items[i].name}</span>`
+        lis += `<span class="workout-count">${items[i].count}</span>`
+        lis += `<button class="workout-button workout-increase" onClick="handleIncrement('${items[i].id}')">`
+        lis += '<i class="fas fa-plus-square"></i>'
+        lis += '</button>'
+        lis += `<button class="workout-button workout-decrease" onClick="handleDecrement('${items[i].id}')">`
+        lis += '<i class="fas fa-minus-square"></i>'
+        lis += '</button>'
+        lis += `<button class="workout-button workout-delete" onClick="handleDelete('${items[i].id}')">`
+        lis += '<i class="fas fa-trash"></i>'
+        lis += '</button>'
+        lis += '</li>'
+      }
+      const ul = document.querySelector(".ul")
+      ul.innerHTML = lis
+    }//end of init
+
+
+  </script>
+
+</body>
+</html>
