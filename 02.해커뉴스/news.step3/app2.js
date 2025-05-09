@@ -25,19 +25,13 @@ window.addEventListener("hashchange",() => {
     const id = location.hash.substring(1)
     const newsContent = getData(CONTENT_URL.replace("@id", id))
     console.log(newsContent);
-
-    //이전에 제목이 있니?
-    while(content.firstChild){//0만 false이고 나머지는 다 true입니다.
-      //div태그안에 첫번째 자식노드 제거해줘
-      content.removeChild(content.firstChild)
-    }
-
     //뉴스 제목을 h1태그 안에 작성하세요
     const title = document.createElement("h1")//<h1>
     title.innerText = newsContent.title//<h1>뉴스제목</h1>
     console.log(title);
     //<div id='root'></div>
-    content.appendChild(title)
+    //content.appendChild(title)
+    content.replaceChildren(title)
 });//end of hashchange
 /*
 replaceChildren()함수는 한번의 호출로 기존의 모든 자식 요소를 제거하고

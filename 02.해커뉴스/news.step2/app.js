@@ -8,7 +8,9 @@ xhr.send() //waitting 상황 기다리는 중
 
 const newsList = JSON.parse(xhr.responseText)//NodeList
 const ul = document.createElement("ul")
-
+//개발자가 호출하는 함수가 아니라 시스템에서 이벤트가 감지되었을때
+//자동으로 호출된다, - callback
+//뉴스제목을 클릭하면 URL 바뀐다 -> 감지한다
 window.addEventListener("hashchange",() => {
     //console.log("The hash has changed!");
     //console.log(location.hash);//#4878909
