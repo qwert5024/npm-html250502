@@ -21,12 +21,15 @@
   <script>
     console.log("여기");
     const items = [
-      {id:1, name: '벤치프레스', count: 0},
-      {id:2, name: '렛풀다운', count: 0},
-      {id:3, name: '스쿼트', count: 0},
+      {id:10, name: '벤치프레스', count: 0},
+      {id:20, name: '렛풀다운', count: 0},
+      {id:30, name: '스쿼트', count: 0},
     ]
-    const handleIncrement = (event) => {
-      console.log("handleIncrement호출 성공");
+    const handleIncrement = (id) => {
+      console.log("handleIncrement호출 성공" +id);
+      console.log(`사용자가 선택한 운동이름의 식별자 값 :${id}`);
+      items[id].count = items[id].count +1
+      const cnt = document/querySelector()
     }//arrow function
     const handleDecrement = (event) => {
       console.log("handleDecrement호출 성공");
@@ -39,7 +42,7 @@
       for(let i=0;i<items.length;i=i+1){
         lis += '<li class="workout">'
         lis += `<span class="workout-name">${items[i].name}</span>`
-        lis += `<span class="workout-count">${items[i].count}</span>`
+        lis += `<span class="workout-count${i}">${items[i].count}</span>`
         lis += `<button class="workout-button workout-increase" onClick="handleIncrement('${items[i].id}')">`
         lis += '<i class="fas fa-plus-square"></i>'
         lis += '</button>'

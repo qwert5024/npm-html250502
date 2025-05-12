@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>섞어쓰기-step6</title>
+</head>
+<body>
+  <script>
+    window.onload = () => {//익명함수
+      //콜백함수라고 한다.- 시스템 레벨에서 호출되는 함수 이다.- 이벤트 핸들러 함수
+      console.log("DOM Tree완료되었을 때 호출이 된다.자동으로 호출됨.");
+      const d_root = document.querySelector(".home")
+      console.log(d_root);
+      d_root.innerText="<b>DOM Tree완료</b>되었을 때 호출이 된다.자동으로 호출됨."
+    }
+  </script>
+  <div id="root">안녕하세요.</div>
+  <div class="home">div home</div>
+</body>
+</html>
