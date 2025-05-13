@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* DOM Tree -> CSSOM Tree -> Render Tree */
+    body {
+      background-color: black;
+    }
+    div {
+      width: 250px;
+      height: 250px;
+      background-color: aqua;
+      margin-bottom: 4px;
+      border-radius: 4px;
+    }
+    .special {
+      background-color: blueviolet;
+    }
+    aside {
+      position: fixed;
+      top: 20px;
+      right:20px;
+    }
+  </style>
+
+</head>
+<body>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+  <div class="special">8</div>
+  <div>9</div>
+  <div>10</div>
+  <aside>
+    <button class="scroll-by">scroll by 100px(y)</button>
+    <button class="scroll-to">scroll to 100px(y)</button>
+    <button class="scroll-into">scroll by special</button>
+  </aside>
+  <script>
+    //이벤트 소스 변수 선언하기 - 클래스 선택자 사용함.
+    const special = document.querySelector(".special")
+    //이벤트 발동되면 자동으로 실행이 된다.
+    //@param1 - 이벤트 핸들러이름 - 단 on떼고 쓴다. - 변수를 선언하는 자리이다.
+    //자바스크립트는 런타임시에 타입이 결정된다. - 불안 - TypeScript
+    //@param2 - 콜백함수선언하고 구현하기 - 
+    special.addEventListener('click', (e1)=>{
+      const rect =special.getBoundingClientRect()
+      console.log(react);
+      //현재 보이는 화면에서 좌표 계산
+      console.log(`clientTo :  ${e1.clientX} ${e1.clientY}`);
+      //page화면의 맨 처음부터 좌표
+      console.log(`page :  ${e1.pageX} ${e1.pageY}`);
+    })//end of click event
+
+    const scrollBy = document.querySelector(".scroll-by")
+    const scrollTo = document.querySelector(".scroll-to")
+    const scrollInto = document.querySelector(".scroll-into")
+    scrollBy.addEventListener('click', () => {
+      window.scrollBy({ top: 100, left: 0, behavior: 'smooth' })
+    })
+    scrollTo.addEventListener('click', () => {//y가 100인곳으로 이동함.
+      window.scrollTo(0,100)
+    })
+    scrollInto.addEventListener('click',() => {
+      special.scrollIntoView()
+    })
+    document.addEventListener('scroll', ()=> {
+      console.log(window.scrollY);
+    })
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+.wrap {
+  width: 800px;
+  border: 10px solid black;
+  margin: 100px auto;
+}
+.left {
+  width: 400px;
+  height: 400px;
+  background-color: aqua;
+  float: left;
+}
+.right {
+  width: 400px;
+  height: 400px;
+  background-color: hotpink;
+  float: left;
+}
+/* 가상선택자 
+부모태그 내에 left와 right상자가 있지만 내부에 아무런 내용이 들어있지 않다.
+자식상자가 붕 떠있는 형국이여서 높이를 부모가 알 수 가 없다.
+가상이므로 보이지 않는 블록이지만 자체 크기가 있어서
+부모의 높이가 자식의 높이에 맞춰서 늘어나고 테두리가 정상적으로
+감싸게 된다.
+*/
+
+.wrap::after {
+  content: ""; /*실제텍스트없이 요소삽입됨*/
+  display: block;/*부모의 콘텐츠에 영향을 줌*/
+  clear: both;/*앞선 float:left요소들 아래로 내려 앉혀서 부모가 그 위치까지 높이를 계산하도록 강제함*/
+}
+
+.bottom{
+  width: 800px;
+  height: 100px;
+  background-color: blueviolet;
+  float: left;
+}

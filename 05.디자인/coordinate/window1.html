@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* DOM Tree -> CSSOM Tree -> Render Tree */
+    body {
+      background-color: black;
+    }
+    div {
+      width: 250px;
+      height: 250px;
+      background-color: aqua;
+      margin-bottom: 4px;
+      border-radius: 4px;
+    }
+    .special{
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div class="special"></div>
+  <div></div>
+  <div></div>
+  <script>
+    const special = document.querySelector(".special")
+    //JS에서는 어떤 이름에 더블이나 싱글 퀘테이션이 없으면 변수 취급 한다.
+    //undefinded를 보게 된다. - 트러블슈팅
+    //이벤트 소스가 감지되어서 아래 함수가 호출될 때 브라우저가
+    //해당 소스에 관련한 이벤트 핸들러에 대응하는 이벤트 객체를 주입해준다.
+    //내가 객체를 직접 생성하는 것이 아니다.
+    //const xhr = new XMLHttpRequest() - 기억해 낸다.
+    //콜백함수의 파라미터 자리에 event는 내가 생성한 객체가 아니다.
+    // 제어권-> 의존성 주입 -> 프레임워크
+    special.addEventListener("click", (event) => {//호이스팅은 발생하지 않음.
+      console.log('click호출 성공');
+      console.log(event.target);
+      //좌중괄호와 우중괄호가 있으면 처리부(변수선언, 조건문, 반복문- 처리)
+      console.log(`${event.clientX}, ${event.clientY}`);
+  })
+  </script>
+</body>
+</html>
