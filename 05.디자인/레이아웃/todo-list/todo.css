@@ -6,6 +6,7 @@
 ul {
   /* 2. 기본 패딩과 구슬 없애기 */
   padding: 0;
+  list-style: none;
 }
 
 body {
@@ -26,6 +27,8 @@ button {
   width: 400px;
   background-color: antiquewhite;
   margin: 30px auto;
+  border: 20px;
+  box-shadow: 0 0 10px 5px black; 
 }
 
 .header {
@@ -34,11 +37,16 @@ button {
   background-color: rgb(0, 255, 0);
   border-radius: 20px 20px 0 0;
   background: #2A7B9B;
-background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(199, 87, 156, 1) 51%, rgba(237, 221, 83, 1) 100%);
+  background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(199, 87, 156, 1) 51%, rgba(237, 221, 83, 1) 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 
 .items {/* ul태그 */
   height: 450px;
+  overflow-y: auto;
 }
 
 /*오늘 할일 목록 리스트 시작 되는 부분*/
@@ -87,4 +95,31 @@ background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(199, 87, 156, 
 .footer_button:hover{
   transform: scale(1.1);
   transition: transform 300ms ease-in;
+}
+
+.load_sample_button{
+  border: none;
+  background: none;
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: transform 300ms ease-in;
+}
+.load_sample_button:hover{
+  transform: scale(1.1);
+  color: aqua;
+}
+.reset_button{
+  border: none;
+  background: none;
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: transform 300ms ease-in;
+}
+.reset_button:hover{
+  transform: rotate(180deg);
+  color: orange;
 }

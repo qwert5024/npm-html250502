@@ -6,7 +6,7 @@ const CONTENT_URL = "https://api.hnpwa.com/v0/item/@id.json"
 
 function getData(url){
   xhr.open("GET", url, false)
-  xhr.send()
+  xhr.send() 
   return JSON.parse(xhr.responseText)
 }//end of getData
 
@@ -15,7 +15,6 @@ const ul = document.createElement("ul")
 
 window.addEventListener("hashchange",() => {
 
-  //insert here
     const id = location.hash.substring(1)
     const newsContent = getData(CONTENT_URL.replace("@id", id))
     const title = document.createElement("h1")//<h1>
@@ -27,7 +26,8 @@ window.addEventListener("hashchange",() => {
     `
 })//end of hashchange
 
-const newsList = []
+const  newsList = []
+
 newsList.push('<ul>')
 for(let i=0;i<10;i++){
   newsList.push(`
@@ -40,5 +40,5 @@ for(let i=0;i<10;i++){
 }
 newsList.push('</ul>')
 console.log(newsList);
-// 빈 문자열을 넣어서 배열을 구분자 없는 문자열로 바꾸어주는 함수 이다.
+// 빈문자열을 넣어서 배열을 구분자 없는 문자열로 바꾸어주는 함수 이다.
 container.innerHTML = newsList.join('')

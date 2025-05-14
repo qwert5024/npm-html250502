@@ -6,23 +6,23 @@
   <title>ToDo List</title>
   <script src="https://kit.fontawesome.com/e42dfe6310.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./todo.css">
+  <script src="./todo.js" defer></script>
 </head>
 <body>
   <section class="list">
-    <header class="header">ToDo-List</header>
+    <header class="header">
+      ToDo-List
+      <div class="header_buttons">
+      <button class="load_sample_button">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="reset_button">
+        <i class="fas fa-redo"></i>
+      </button>
+      </div>
+    </header>
     <!--===============목록 시작=======================-->
     <ul class="items">
-      <li class="item_row">
-        <!-- flex박스, justify-content: space-between -->
-        <div class="item">
-          <span class="item_name">런닝30분</span>
-          <button class="item-delete">
-            <i class="fas fa-trash"></i>
-          </button>
-        </div>
-        <!-- item 아래에 밑줄 그어지도록 추가-->
-        <div class="item_divider"></div>
-      </li>
     </ul>
     <!--======================= 목록 끝 ===========================-->
     <footer class="footer">
