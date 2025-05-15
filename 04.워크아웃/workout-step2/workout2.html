@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<script src="https://kit.fontawesome.com/e42dfe6310.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./workout2.css">
+</head>
+<body>
+  <script>
+    window.addEventListener("load", (event) => {
+      init()
+    });
+  </script>
+  <ul class="ul"></ul>
+  <script>
+    console.log("여기");
+    let count = 0
+    const items = [
+      {id:1, name: '벤치프레스', count: 0},
+      {id:2, name: '렛풀다운', count: 0},
+      {id:3, name: '스쿼트', count: 0},
+    ]
+    const handleIncrement = (id) => {
+      console.log("handleIncrement호출 성공" +id);
+      console.log(`사용자가 선택한 운동이름의 식별자 값 : ${id}`);
+      const index = id -1
+      items[index].count = items[index].count +1
+      const cnt = document.querySelector(`.workout-count${id}`)
+      cnt.innerHTML = items[index].count
+    }//arrow function
+    const handleDecrement = (event) => {
+      console.log("handleDecrement호출 성공");
+    }//end of handleDecrement
+    const handleDelete = (event) => {
+      console.log("handleDelete호출 성공");
+    }//end of handleDelete
+    const init = () => {
+      let lis = ''
+      for(let i=0;i<items.length;i=i+1){
+        lis = lis + '<li class="workout">'
+        lis = lis +`<span class="workout-name">${items[i].name}</span>`
+        lis = lis +`<span class="workout-count${items[i].id}">${items[i].count}</span>`
+        lis = lis +`<button class="workout-button workout-increase" onClick="handleIncrement('${items[i].id}')">`
+        lis = lis +'<i class="fas fa-plus-square"></i>'
+        lis = lis +'</button>'
+        lis = lis +`<button class="workout-button workout-decrease" onClick="handleDecrement('${items[i].id}')">`
+        lis = lis +'<i class="fas fa-minus-square"></i>'
+        lis = lis +'</button>'
+        lis = lis +`<button class="workout-button workout-delete" onClick="handleDelete('${items[i].id}')">`
+        lis = lis +'<i class="fas fa-trash"></i>'
+        lis = lis +'</button>'
+        lis = lis +'</li>'
+      }//end of for
+      const ul = document.querySelector(".ul")
+      ul.innerHTML = lis
+    }//end of init
+
+
+  </script>
+
+</body>
+</html>

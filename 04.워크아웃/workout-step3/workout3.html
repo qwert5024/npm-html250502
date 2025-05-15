@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/3b3af91d34.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./workout3.css">
+</head>
+<body>
+  <script>
+    window.addEventListener("load", (event) => {
+      init()
+    });
+    console.log("여기");
+    let items = [
+      {id:1, name: '벤치프레스', count: 0},
+      {id:2, name: '렛풀다운', count: 0},
+      {id:3, name: '스쿼트', count: 0},
+    ]
+    const handleIncrement = (id) => {
+      console.log("handleIncrement호출 성공" +id);
+      console.log(`사용자가 선택한 운동이름의 식별자 값 : ${id}`);
+      const index = id -1
+      //증가는 100, 1000이든 문제가 안되겠지만 감소는 -1이 나올 수도 있다.(고려해야 함.)
+      //-1이 나오는 경우를 필터링 해야 한다. -> 변수로 선언하여 삼항연산자로 처리 하였다.
+      items[index].count = items[index].count +1
+      const cnt = document.querySelector(`.workout-count${id}`)
+      cnt.innerHTML = items[index].count
+    }//arrow function
+    const handleDecrement = (id) => {
+      console.log("handleDecrement호출 성공");
+      const index = id -1
+      const count = items[index].count - 1
+      //37번에 선언한 count가 0보다 작니? 네 : 아니
+      items[index].count = count < 0 ? 0 : count //삼항연산자이다.
+      const cnt = document.querySelector(`.workout-count${id}`)
+      cnt.innerHTML = items[index].count
+    }//end of handleDecrement
+    //44번 함수의 파라미터 자리 myid는 언제 누구에 의해서 결정되나요?
+    const handleDelete = (myid) => {
+      console.log("handleDelete호출 성공");
+      const workouts = items.filter(item => item.id != myid)
+      items = [...workouts]
+      console.log(items.length);//2
+      //insert here
+      init()
+
+    }//end of handleDelete
+    const init = () => {
+      let lis = ''
+      for(let i=0;i<items.length;i=i+1){
+        lis = lis + '<li class="workout">'
+        lis = lis +`<span class="workout-name">${items[i].name}</span>`
+        lis = lis +`<span class="workout-count${items[i].id}">${items[i].count}</span>`
+        lis = lis +`<button class="workout-button workout-increase" onClick="handleIncrement('${items[i].id}')">`
+        lis = lis +'<i class="fas fa-plus-square"></i>'
+        lis = lis +'</button>'
+        lis = lis +`<button class="workout-button workout-decrease" onClick="handleDecrement('${items[i].id}')">`
+        lis = lis +'<i class="fas fa-minus-square"></i>'
+        lis = lis +'</button>'
+        lis = lis +`<button class="workout-button workout-delete" onClick="handleDelete('${items[i].id}')">`
+        lis = lis +'<i class="fas fa-trash"></i>'
+        lis = lis +'</button>'
+        lis = lis +'</li>'
+      }//end of for
+      const ul = document.querySelector(".ul")
+      ul.innerHTML = lis
+    }//end of init
+
+// Add버튼을 클릭했을 때 이벤트 처리
+    const handleAdd = () => {
+  //사용자가 입력한 이름을 받아서 담음.
+      const imsi = document.querySelector(".add-input")
+      //const imsi = document.querySelector(".add-input")
+      const name = imsi.value
+      const workouts = [...items,{id: items.length+1, name:name, count:0}]
+      items = [...workouts]
+    init()
+    }
+
+
+  </script>
+    <div class="navbar">
+        <i class="navbar-logo fas fa-leaf"></i>
+        <span>Workout Tracker</span>
+        <span class="navbar-count">0</span>
+    </div>
+    <div class="workouts">
+        <form class="add-for">
+            <input 
+                type="text" class="add-input" placeholder="운동이름"/>
+            <button type="button" class="add-button" onclick="handleAdd()">Add</button>
+        </form>        
+        <ul class="ul">          
+        </ul>
+    </div>
+
+</body>
+</html>
