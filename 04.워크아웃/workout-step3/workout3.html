@@ -66,6 +66,11 @@
       }//end of for
       const ul = document.querySelector(".ul")
       ul.innerHTML = lis
+
+      //오늘 할 운동 가지 수
+      const workoutCount = document.querySelector(".navbar-count")
+      workoutCount.innerHTML = items.length
+
     }//end of init
 
 // Add버튼을 클릭했을 때 이벤트 처리

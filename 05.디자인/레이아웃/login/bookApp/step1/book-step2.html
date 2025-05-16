@@ -120,6 +120,13 @@
     </div>
     </div>
 <script type="module">
+  /*
+    process.env는 NodeJs 환경에서 사용되는 접근 방식입니다. 
+    예)React프로젝트를 생성하기 - CRA(기존방식 react18.3.1), CLI(react19.x)
+    CRA방식과 CLI방식으로 플젝을 생성했을 때 process.env가 서로 다르다.
+    현재 코드는 브라우저에서 실행되고 있다.
+    NodeJS환경이 아니므로 process객체에 접근이 불가하다.
+  */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
   const firebaseConfig = {
     apiKey: "AIzaSyDvNcuKpBOWqnTBeZFpKuglWfCEElAueEo",
