@@ -11,7 +11,7 @@ console.log(typeof '123');
 //특정한 변수의 값을 비워둘 때
 console.log(typeof null);
 console.log(typeof undefined);
-
+// 어떤 사물을 대표하는 고유명사
 let tomato = {
   name: '토마토',
   color: 'red',
