@@ -1,0 +1,34 @@
+* {
+  /*border: 1px red solid;*/
+}
+body {background-color: black;
+}
+
+.tag {
+  position: absolute;
+  color: white;
+  transform: translate(30px, 20px);
+  font-size: 2rem;
+}
+.line {
+  position: absolute;
+  background-color: white;
+}
+.horizontal {  
+  top: 50%;
+  height: 1px;
+  width: 100%;
+}
+.vertical {
+  height: 100%;
+  width: 1px;
+  left: 50%;
+}
+
+.target {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* 이미지 크기의 절반만큼씩 이동시킴*/
+  transform: translate(-50%, -50%);
+}

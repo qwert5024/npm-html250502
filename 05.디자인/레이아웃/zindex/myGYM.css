@@ -1,0 +1,6 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;/* 여백을 포함하는 사이즈 계산 */
+  border: 1px solid red;
+}
