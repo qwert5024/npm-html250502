@@ -1,6 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 *{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;/* 여백을 포함하는 사이즈 계산 */
   border: 1px solid red;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0px;
+  left: 0px;
+  color: white;
+  z-index: 2;
+
+}
+
+header h1 {
+  font: bold 24px/1 "arial";
+  color: white;
+  z-index: 2;
+}
+
+header .gnb li {
+  margin: 0px 20px;
+}
+
+header .gnb li a {
+  color: white;
+}
+
+.gnb {
+  display: flex;
+  z-index: 2;
+}
+
+.sns {
+  display: flex;
+  z-index: 2;
+}
+
+header .sns li {
+  /* top과 bottom은 0이고 left right 10px */
+  margin: 0px 10px;
+}
+
+header .sns li a {
+  font-size: 16px;
+  color: white;
+}
+
+
+
+div {
+  /* 폭은 가득 채움 */
+  width: 100%;
+  /* v는 뷰포트를 의미 보이는 화면의 높이값을 나타냄. */
+  height: 100vh;
+  /* 스크롤바 숨김 */
+  overflow: hidden;
+  z-index: 1;
+  position: absolute; /* 좌표값에 따라 배치가 됨*/
+  top: 0px;/* y축 좌표값 */
+  left: 0px;/* x축 좌표값 */
+}
+div video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.txt {
+  position: absolute;
+  top: 50%;
+  transform: translateY(20%);
+  left: 100px;
+  z-index: 2;
+}
+
+.txt p {
+  color: white;
+}
+
+footer {
+  font: 14px/1 "arial";
+  width: 100%;
+  letter-spacing: 2px; /* 알파벳 사이의 간격 */
+  padding: 5vh 5vw;
+  position: absolute;
+  text-align: center;
+  bottom: 0px;
+  left: 0px;
+  z-index: 2;
+  color: white;
 }
